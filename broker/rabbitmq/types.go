@@ -7,6 +7,8 @@ import (
 type Config struct {
 	Host              string
 	Port              string
+	User              string
+	Pass              string
 	ExchangeName      string
 	ExchangeType      string
 	Queue             string

@@ -9,6 +9,6 @@ import (
 
 type Usecases interface {
 	AddBalance(voucher *entities.Voucher) error
-	GetBalance(ctx context.Context, user string) (*entities.Account, error)
+	GetBalance(ctx context.Context, mobile string) (*entities.Account, error)
 	io.Closer
 }

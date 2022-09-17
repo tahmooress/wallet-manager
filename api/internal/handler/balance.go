@@ -14,15 +14,15 @@ var errInvalidMobile = errors.New("mobile format is not valid")
 
 func (h *Handler) Balance() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		user := mux.Vars(r)["user"]
-		if user == "" {
+		mobile := mux.Vars(r)["mobile"]
+		if mobile == "" {
 			w.WriteHeader(http.StatusNotFound)
-			// w.Write([]byte(service.ErrCampaginNotFound.Error()))
+			w.Write([]byte(errInvalidMobile.Error()))
 
 			return
 		}
 
-		u, err := newMobile(user)
+		m, err := newMobile(mobile)
 		if err != nil {
 			h.logger.Errorf("handler: Balance() >> %w", err)
 			w.WriteHeader(http.StatusBadRequest)
@@ -30,7 +30,7 @@ func (h *Handler) Balance() http.HandlerFunc {
 			return
 		}
 
-		account, err := h.service.GetBalance(r.Context(), u)
+		account, err := h.service.GetBalance(r.Context(), m)
 		if err != nil {
 			h.logger.Errorf("handler: Balance() >> %w", err)
 

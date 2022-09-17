@@ -3,13 +3,13 @@ package entities
 import "time"
 
 type Account struct {
-	User      string
+	Mobile    string
 	Balance   int64
 	CreatedAt time.Time
 }
 
 type Voucher struct {
-	User     string `json:"user"`
+	Mobile   string `json:"mobile"`
 	Campaign string `json:"campaign"`
 	Value    int64  `json:"value"`
 }

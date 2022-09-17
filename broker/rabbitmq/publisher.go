@@ -203,8 +203,9 @@ func (s *session) publisher() {
 					Priority:        0,
 				},
 			)
-
-			s.logger.Errorf("fail to publish error: %w", err)
+			if err != nil {
+				s.logger.Errorf("fail to publish error: %w", err)
+			}
 		case <-s.stopPublish:
 			return
 		case <-s.done:

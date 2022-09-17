@@ -6,7 +6,6 @@ import (
 	"fmt"
 
 	_ "github.com/lib/pq"
-
 	"github.com/tahmooress/wallet-manager/configs"
 )
 

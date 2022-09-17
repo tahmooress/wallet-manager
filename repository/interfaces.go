@@ -12,7 +12,7 @@ type Tx interface {
 }
 
 type Reader interface {
-	GetBalance(ctx context.Context, user string) (*entities.Account, error)
+	GetBalance(ctx context.Context, moblie string) (*entities.Account, error)
 }
 
 type Writer interface {

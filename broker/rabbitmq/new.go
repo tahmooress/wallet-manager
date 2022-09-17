@@ -154,7 +154,7 @@ func (s *session) initSetting(cfg Config) error {
 		return fmt.Errorf("rabbit >> initSetting >> %w", err)
 	}
 
-	cfg.addr = fmt.Sprintf("%s://%s", "amqp", cfg.Host)
+	cfg.addr = createAddr(cfg.User, cfg.Pass, cfg.Host, cfg.Port)
 
 	min := 10000
 	max := 99999
@@ -173,4 +173,8 @@ func (s *session) initSetting(cfg Config) error {
 	s.cfg.prefetchSize = defaultPrefetchSize
 
 	return nil
+}
+
+func createAddr(user, pass, ip, port string) string {
+	return fmt.Sprintf("amqp://%s:%s@%s:%s", user, pass, ip, port)
 }

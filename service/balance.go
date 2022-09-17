@@ -20,6 +20,6 @@ func (s *service) AddBalance(voucher *entities.Voucher) error {
 	return nil
 }
 
-func (s *service) GetBalance(ctx context.Context, user string) (*entities.Account, error) {
-	return s.db.GetBalance(ctx, user)
+func (s *service) GetBalance(ctx context.Context, mobile string) (*entities.Account, error) {
+	return s.db.GetBalance(ctx, mobile)
 }

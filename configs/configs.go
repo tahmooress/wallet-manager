@@ -22,6 +22,8 @@ type AppConfigs struct {
 
 	RabbitMQWalletHost         string
 	RabbitMQWalletPort         string
+	RabbitMQWalletUser         string
+	RabbitMQWalletPass         string
 	RabbitMQWalletExchange     string
 	RabbitMQWalletExchangeType string
 	RabbitMQWalletRoutingKey   string
@@ -46,6 +48,8 @@ func Load() *AppConfigs {
 
 		RabbitMQWalletHost:         os.Getenv("RABBITMQ_WALLET_HOST"),
 		RabbitMQWalletPort:         os.Getenv("RABBITMQ_REDEEMER_PORT"),
+		RabbitMQWalletUser:         os.Getenv("RABBITMQ_REDEEMER_USER"),
+		RabbitMQWalletPass:         os.Getenv("RABBITMQ_REDEEMER_PASSWORD"),
 		RabbitMQWalletExchange:     os.Getenv("RABBITMQ_WALLET_EXCHANGE"),
 		RabbitMQWalletExchangeType: os.Getenv("RABBITMQ_WALLET_EXCHANGE_TYPE"),
 		RabbitMQWalletQuee:         os.Getenv("RABBITMQ_WALLET_QUEUE"),

@@ -30,7 +30,7 @@ func NewHTTPServer(cfg *configs.AppConfigs, srv service.Usecases, logger logger.
 		mux.MiddlewareFunc(middlewares.JSON),
 	)
 
-	router.HandleFunc("balance/{user}", handler.Balance()).Methods(http.MethodGet)
+	router.HandleFunc("balance/{mobile}", handler.Balance()).Methods(http.MethodGet)
 
 	server := &http.Server{
 		Addr:         fmt.Sprintf("%s:%s", cfg.HTTPIP, cfg.HTTPPort),
